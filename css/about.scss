@@ -1,1 +1,78 @@
 @import "background";
+@import "font";
+@import "navbar";
+
+@media only screen and (min-width:600px){
+    #donateButton {
+    width: 5%;
+    float:right;
+    margin-top: 2.75%;
+    padding-right: 5%;    
+    }
+}
+
+@media only screen and (max-width: 599px){
+    #donateButton {
+        bottom: 0;
+        position:fixed;
+        float:right;
+        width:93%;
+        text-align: right;
+    }    
+}
+
+#divAbout{
+    
+    width: 100%;
+    float:right;
+    
+    h2{
+        margin-left: 20px;
+    }
+    
+    div {
+        border: 1px white solid;
+        padding-left: 8px;    
+    }
+}
+
+#contact {
+    width: 100%;
+    float:right;
+    
+    h2{
+        margin-left: 20px; 
+    }
+    
+    div {
+        border:1px solid white;	
+        height: auto;
+        text-align:center;
+        position:relative;
+        
+        .btn {
+            border: none;
+            position:relative;
+            margin:10px auto;
+            margin-left: 10px;
+            margin-right: 10px;
+            display:inline-block;
+            
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color:darkorchid;
+            
+        }
+        
+    }
+   
+}
+

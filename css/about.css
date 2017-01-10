@@ -2,4 +2,82 @@ body {
   background-image: url("../images/apl/background.jpg"), url("../images/apl/background.jpg");
   background-color: black; }
 
+@font-face {
+  font-family: "Catamaran";
+  font-weight: 500;
+  src: url("font/Catamaran/Catamaran-Medium.ttf"); }
+@font-face {
+  font-family: "Kadwa";
+  font-weight: 700;
+  src: url("font/Kadwa/Kadwa-Bold.ttf"); }
+@font-face {
+  font-family: "Bowlby One SC";
+  src: url("font/Bowlby_One_SC/BowlbyOneSC-Regular.ttf"); }
+* {
+  color: white;
+  font-family: "Kadwa", monospace; }
+
+nav {
+  width: 90%;
+  float: left; }
+  nav .brand {
+    font-family: "Bowlby One SC";
+    font-size: 30px; }
+  nav #icon {
+    -webkit-transition: -webkit-filter 1s;
+    transition: filter 1s;
+    float: left;
+    width: 100px;
+    height: 100px; }
+  nav #icon:hover {
+    -webkit-filter: drop-shadow(0px 0px 10px #fff);
+    filter: drop-shadow(0px 0px 10px #fff); }
+
+@media only screen and (min-width: 600px) {
+  #donateButton {
+    width: 5%;
+    float: right;
+    margin-top: 2.75%;
+    padding-right: 5%; } }
+@media only screen and (max-width: 599px) {
+  #donateButton {
+    bottom: 0;
+    position: fixed;
+    float: right;
+    width: 93%;
+    text-align: right; } }
+#divAbout {
+  width: 100%;
+  float: right; }
+  #divAbout h2 {
+    margin-left: 20px; }
+  #divAbout div {
+    border: 1px white solid;
+    padding-left: 8px; }
+
+#contact {
+  width: 100%;
+  float: right; }
+  #contact h2 {
+    margin-left: 20px; }
+  #contact div {
+    border: 1px solid white;
+    height: auto;
+    text-align: center;
+    position: relative; }
+    #contact div .btn {
+      border: none;
+      position: relative;
+      margin: 10px auto;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: inline-block; }
+      #contact div .btn img {
+        width: 16px;
+        height: 16px; }
+    #contact div a {
+      text-decoration: none; }
+    #contact div a:hover {
+      color: darkorchid; }
+
 /*# sourceMappingURL=about.css.map */

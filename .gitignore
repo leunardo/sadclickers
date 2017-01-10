@@ -1,1 +1,3 @@
 *.db
+css/.sass-cache/
+*.map

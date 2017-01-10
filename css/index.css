@@ -1,0 +1,79 @@
+body {
+  background-image: url("../images/apl/background.jpg"), url("../images/apl/background.jpg");
+  background-color: black; }
+
+@font-face {
+  font-family: "Catamaran";
+  font-weight: 500;
+  src: url("font/Catamaran/Catamaran-Medium.ttf"); }
+@font-face {
+  font-family: "Kadwa";
+  font-weight: 700;
+  src: url("font/Kadwa/Kadwa-Bold.ttf"); }
+@font-face {
+  font-family: "Bowlby One SC";
+  src: url("font/Bowlby_One_SC/BowlbyOneSC-Regular.ttf"); }
+* {
+  color: white;
+  font-family: "Kadwa", monospace; }
+
+#navbar {
+  width: 100%;
+  float: left; }
+  #navbar .brand {
+    font-family: "Bowlby One SC";
+    font-size: 30px; }
+  #navbar #icon {
+    -webkit-transition: -webkit-filter 1s;
+    transition: filter 1s;
+    float: left;
+    width: 100px;
+    height: 100px; }
+  #navbar #icon:hover {
+    -webkit-filter: drop-shadow(0px 0px 10px #fff);
+    filter: drop-shadow(0px 0px 10px #fff); }
+
+#content {
+  margin-top: 10%;
+  width: 100%;
+  float: right;
+  font-family: "Kadwa", "serif";
+  text-align: center; }
+  @media only screen and (min-width: 300px) and (max-width: 1023px) {
+    #content .button {
+      width: 60%;
+      margin-left: 20%; } }
+  @media only screen and (min-width: 1024px) {
+    #content .button {
+      width: 30%;
+      margin-left: 32.5%; } }
+  #content a {
+    text-decoration: none; }
+  #content .button {
+    -webkit-transition: -webkit-filter 1s;
+    transition: filter 1s;
+    background: #000000;
+    background-image: -webkit-linear-gradient(top, #000000, #58595C);
+    background-image: -moz-linear-gradient(top, #000000, #58595C);
+    background-image: -ms-linear-gradient(top, #000000, #58595C);
+    background-image: -o-linear-gradient(top, #000000, #58595C);
+    background-image: linear-gradient(to bottom, #000000, #58595C);
+    -webkit-border-radius: 21px;
+    -moz-border-radius: 21px;
+    border-radius: 21px;
+    -webkit-box-shadow: 3px 3px 6px #666666;
+    -moz-box-shadow: 3px 3px 6px #666666;
+    box-shadow: 3px 3px 6px #666666; }
+  #content .button:hover {
+    -webkit-filter: drop-shadow(0px 0px 10px #fff);
+    filter: drop-shadow(0px 0px 10px #fff); }
+
+footer {
+  position: fixed;
+  width: 97%;
+  bottom: 0; }
+  footer a {
+    float: right;
+    margin-left: 5px; }
+
+/*# sourceMappingURL=index.css.map */

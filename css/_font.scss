@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Catamaran";
+    font-weight: 500;
+    src: url("font/Catamaran/Catamaran-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Kadwa";
+    font-weight: 700;
+    src: url("font/Kadwa/Kadwa-Bold.ttf");
+    
+}
+
+@font-face {
+    font-family: "Bowlby One SC";
+    src: url("font/Bowlby_One_SC/BowlbyOneSC-Regular.ttf")
+}
+
+* {
+    color: white;
+    font-family:  "Kadwa", monospace;    
+}

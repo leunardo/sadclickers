@@ -2,6 +2,7 @@ body {
   background-image: url("../images/apl/background.jpg"), url("../images/apl/background.jpg");
   background-color: black; }
 
+/* font */
 @font-face {
   font-family: "Catamaran";
   font-weight: 500;
@@ -17,8 +18,10 @@ body {
   color: white;
   font-family: "Kadwa", monospace; }
 
+/* enf of font */
+/* navbar */
 nav {
-  width: 90%;
+  width: 25%;
   float: left; }
   nav .brand {
     font-family: "Bowlby One SC";
@@ -33,6 +36,7 @@ nav {
     -webkit-filter: drop-shadow(0px 0px 10px #fff);
     filter: drop-shadow(0px 0px 10px #fff); }
 
+/* end of navbar */
 #content {
   margin-top: 10%;
   width: 100%;

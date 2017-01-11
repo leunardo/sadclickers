@@ -1,1 +1,118 @@
 @import "background";
+@import "font";
+@import "navbar";
+@import "scrollbar";
+
+@media only screen and (min-width: 1024px){
+    #ads {
+        height: 90px;
+        border: 1px white solid;
+        float:left;
+        width: 728px;
+        margin-left:30px;
+    }
+    
+    #userInfo {
+        height: 170px;
+        width: 200px;
+        border: 1px white solid;
+        float: right;
+        margin-left: 10px;
+        margin-right: 10px;
+        
+        p {
+            text-align: center;
+            
+            span {
+                font-style: italic;
+            }
+        }
+    }
+    
+    #options {
+        float: left;
+        margin-top: -40px;
+        margin-left: 7%;
+        clear:both;
+        button {           
+            font-family: "Catamaran";
+            background-color:#768d87;
+            -moz-border-radius:15px;
+            -webkit-border-radius:15px;
+            border-radius:15px;
+            border:1px solid #566963;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:17px;
+            padding:0px 20px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #2b665e;
+        }
+        button:hover {
+	       background-color:#6c7c7c;
+        }
+        button:active {
+	       position:relative;
+	       top:1px;
+        }
+
+    }
+    
+    #game {
+        width:100%;
+        clear: both;
+        float:left;
+        margin-top: 5px;
+        height: 60%;
+        
+        #buyUnit {
+            background: rgba(47, 242, 252, 0.69);
+            float:left;
+            overflow-y: auto;
+            border: 1px solid white;            
+            height: 30em;
+            width: 25%;
+            margin-left: 30px;     
+            table {
+                
+                width: 100%;
+                
+            
+                
+                td{   
+                   
+                    text-align: center;   
+                    
+                    img {
+                        height: 64px;
+                        width: 64px;
+                    }                   
+                }               
+            }
+        }
+    }
+    
+    #sadButton {        
+        width: 20%;
+        margin-left:400px;
+        
+    }
+    
+    
+}
+    
+
+
+@media only screen and (max-width: 1024px){
+    #ads {
+        visibility: hidden;
+    }
+    #userInfo {
+        visibility: hidden;
+    }
+    #options {
+        visibility:hidden;        
+    }
+}

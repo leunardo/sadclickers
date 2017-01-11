@@ -2,4 +2,141 @@ body {
   background-image: url("../images/apl/background.jpg"), url("../images/apl/background.jpg");
   background-color: black; }
 
+/* font */
+@font-face {
+  font-family: "Catamaran";
+  font-weight: 500;
+  src: url("font/Catamaran/Catamaran-Medium.ttf"); }
+@font-face {
+  font-family: "Kadwa";
+  font-weight: 700;
+  src: url("font/Kadwa/Kadwa-Bold.ttf"); }
+@font-face {
+  font-family: "Bowlby One SC";
+  src: url("font/Bowlby_One_SC/BowlbyOneSC-Regular.ttf"); }
+* {
+  color: white;
+  font-family: "Kadwa", monospace; }
+
+/* enf of font */
+/* navbar */
+nav {
+  width: 25%;
+  float: left; }
+  nav .brand {
+    font-family: "Bowlby One SC";
+    font-size: 30px; }
+  nav #icon {
+    -webkit-transition: -webkit-filter 1s;
+    transition: filter 1s;
+    float: left;
+    width: 100px;
+    height: 100px; }
+  nav #icon:hover {
+    -webkit-filter: drop-shadow(0px 0px 10px #fff);
+    filter: drop-shadow(0px 0px 10px #fff); }
+
+/* end of navbar */
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.4); }
+
+/* End of ScrollBar */
+@media only screen and (min-width: 1024px) {
+  #ads {
+    height: 90px;
+    border: 1px white solid;
+    float: left;
+    width: 728px;
+    margin-left: 30px; }
+
+  #userInfo {
+    height: 170px;
+    width: 200px;
+    border: 1px white solid;
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px; }
+    #userInfo p {
+      text-align: center; }
+      #userInfo p span {
+        font-style: italic; }
+
+  #options {
+    float: left;
+    margin-top: -40px;
+    margin-left: 7%;
+    clear: both; }
+    #options button {
+      font-family: "Catamaran";
+      background-color: #768d87;
+      -moz-border-radius: 15px;
+      -webkit-border-radius: 15px;
+      border-radius: 15px;
+      border: 1px solid #566963;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: Arial;
+      font-size: 17px;
+      padding: 0px 20px;
+      text-decoration: none;
+      text-shadow: 0px 1px 0px #2b665e; }
+    #options button:hover {
+      background-color: #6c7c7c; }
+    #options button:active {
+      position: relative;
+      top: 1px; }
+
+  #game {
+    width: 100%;
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    height: 60%; }
+    #game #buyUnit {
+      background: rgba(47, 242, 252, 0.69);
+      float: left;
+      overflow-y: auto;
+      border: 1px solid white;
+      height: 30em;
+      width: 25%;
+      margin-left: 30px; }
+      #game #buyUnit table {
+        width: 100%; }
+        #game #buyUnit table td {
+          text-align: center; }
+          #game #buyUnit table td img {
+            height: 64px;
+            width: 64px; }
+
+  #sadButton {
+    width: 20%;
+    margin-left: 400px; } }
+@media only screen and (max-width: 1024px) {
+  #ads {
+    visibility: hidden; }
+
+  #userInfo {
+    visibility: hidden; }
+
+  #options {
+    visibility: hidden; } }
+
 /*# sourceMappingURL=game.css.map */

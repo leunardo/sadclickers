@@ -60,12 +60,40 @@
 
     }
     
+    #money {
+        border: 1px white solid;
+        clear:both;
+        width: 50%;
+        float: left;
+        height: 30px;
+        margin-top: 6%;
+        margin-left: 30%;
+        position: absolute;
+        text-align: center;
+        
+        #totalcoins {
+                font-size: 18px;
+                font-style: bold;
+            }
+            #coinsps{
+                font-size: 16px;
+            }
+        
+        p{
+            display: inline-block;
+            
+            
+        }
+        
+    }
+    
     #game {
         width:100%;
         clear: both;
         float:left;
         margin-top: 5px;
-        height: 60%;
+        height: 60%;        
+         
         
         #buyUnit {
             background: rgba(47, 242, 252, 0.69);
@@ -92,13 +120,22 @@
                 }               
             }
         }
-    }
-    
-    #sadButton {        
-        width: 20%;
-        margin-left:400px;
+        
+        #sadButton {        
+            width: 20%;            
+            float: right;
+        }
+        #sadButton:active {
+            position:relative;
+            top: 3px;
+        }
+        
+        
+       
         
     }
+    
+    
     
     
 }

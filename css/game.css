@@ -104,6 +104,24 @@ nav {
       position: relative;
       top: 1px; }
 
+  #money {
+    border: 1px white solid;
+    clear: both;
+    width: 50%;
+    float: left;
+    height: 30px;
+    margin-top: 6%;
+    margin-left: 30%;
+    position: absolute;
+    text-align: center; }
+    #money #totalcoins {
+      font-size: 18px;
+      font-style: bold; }
+    #money #coinsps {
+      font-size: 16px; }
+    #money p {
+      display: inline-block; }
+
   #game {
     width: 100%;
     clear: both;
@@ -125,10 +143,12 @@ nav {
           #game #buyUnit table td img {
             height: 64px;
             width: 64px; }
-
-  #sadButton {
-    width: 20%;
-    margin-left: 400px; } }
+    #game #sadButton {
+      width: 20%;
+      float: right; }
+    #game #sadButton:active {
+      position: relative;
+      top: 3px; } }
 @media only screen and (max-width: 1024px) {
   #ads {
     visibility: hidden; }

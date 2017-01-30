@@ -3,7 +3,7 @@
 @import "navbar";
 @import "scrollbar";
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1023px){
     #ads {
         height: 90px;
         border: 1px white solid;
@@ -13,8 +13,8 @@
     }
     
     #userInfo {
-        height: 170px;
-        width: 200px;
+        height: 10%;
+        width: 15%;
         border: 1px white solid;
         float: right;
         margin-left: 10px;
@@ -22,98 +22,69 @@
         
         p {
             text-align: center;
-            
+            font-size: 10px;
             span {
+                
                 font-style: italic;
             }
         }
-    }
+    }   
     
     #options {
-        float: left;
-        margin-top: -40px;
-        margin-left: 7%;
-        clear:both;
+            
+        float:left;   
+        clear:left;
+        margin-left: 5%;
         button {           
             font-family: "Catamaran";
-            background-color:#768d87;
-            -moz-border-radius:15px;
-            -webkit-border-radius:15px;
-            border-radius:15px;
-            border:1px solid #566963;
-            display:inline-block;
+            background-color:#768d87;            
             cursor:pointer;
             color:#ffffff;
             font-family:Arial;
-            font-size:17px;
-            padding:0px 20px;
+            font-size:17px;            
             text-decoration:none;
             text-shadow:0px 1px 0px #2b665e;
-        }
-        button:hover {
-	       background-color:#6c7c7c;
-        }
+        }        
         button:active {
 	       position:relative;
 	       top:1px;
         }
 
     }
-    
     #money {
-        border: 1px white solid;
-        clear:both;
-        width: 50%;
-        float: left;
-        height: 30px;
-        margin-top: 6%;
-        margin-left: 30%;
-        position: absolute;
-        text-align: center;
-        
-        #totalcoins {
-                font-size: 18px;
-                font-style: bold;
+            float:left;           
+            width: 48%;                      
+            height: 3%;
+            margin-left: 15%;              
+            text-align: right;
+            #totalcoins{
+                font-size: 12px;
             }
-            #coinsps{
-                font-size: 16px;
+            p {
+                display: inline-block;
+                font-size: 9px;
             }
-        
-        p{
-            display: inline-block;
-            
-            
-        }
-        
     }
-    
     #game {
+        clear:both;
         width:100%;
-        clear: both;
-        float:left;
-        margin-top: 5px;
-        height: 60%;        
-         
+        margin-top: 1.5%;
+        display: inline-block;
         
         #buyUnit {
-            background: rgba(47, 242, 252, 0.69);
-            float:left;
-            overflow-y: auto;
-            border: 1px solid white;            
+            width: 30%;
             height: 30em;
-            width: 25%;
-            margin-left: 30px;     
-            table {
-                
-                width: 100%;
-                
-            
-                
-                td{   
-                   
-                    text-align: center;   
-                    
+            background: rgba(47, 242, 252, 0.69);
+            overflow: auto;
+            margin-left: 30px; 
+            float:left;
+            position: relative;
+            table {                
+                width: 100%;               
+                td{                      
+                    text-align: center;                       
                     img {
+                        vertical-align: middle;
                         height: 64px;
                         width: 64px;
                     }                   
@@ -121,24 +92,36 @@
             }
         }
         
-        #sadButton {        
-            width: 20%;            
-            float: right;
+        #sadButton {
+            width: 18%;
+            margin-left: 4%; 
+            float:left;
+            text-align: center;
+            
         }
         #sadButton:active {
             position:relative;
             top: 3px;
         }
         
-        
-       
-        
-    }
-    
-    
-    
-    
+        #totalUnits{
+            width: 42%; 
+            height: 30em;
+            float:right;
+            background: rgba(47, 242, 252, 0.69);
+            overflow: auto;
+            
+            position: relative;
+            
+            img{
+                vertical-align: middle; 
+                height: 64px;
+                width: 64px;
+            }
+        }
+    }  
 }
+
     
 
 

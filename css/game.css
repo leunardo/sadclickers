@@ -39,7 +39,8 @@ nav {
 /* end of navbar */
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px; }
+  width: 6px;
+  height: 6px; }
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -58,7 +59,7 @@ nav {
   background: rgba(0, 0, 0, 0.4); }
 
 /* End of ScrollBar */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1023px) {
   #ads {
     height: 90px;
     border: 1px white solid;
@@ -67,88 +68,87 @@ nav {
     margin-left: 30px; }
 
   #userInfo {
-    height: 170px;
-    width: 200px;
+    height: 10%;
+    width: 15%;
     border: 1px white solid;
     float: right;
     margin-left: 10px;
     margin-right: 10px; }
     #userInfo p {
-      text-align: center; }
+      text-align: center;
+      font-size: 10px; }
       #userInfo p span {
         font-style: italic; }
 
   #options {
     float: left;
-    margin-top: -40px;
-    margin-left: 7%;
-    clear: both; }
+    clear: left;
+    margin-left: 5%; }
     #options button {
       font-family: "Catamaran";
       background-color: #768d87;
-      -moz-border-radius: 15px;
-      -webkit-border-radius: 15px;
-      border-radius: 15px;
-      border: 1px solid #566963;
-      display: inline-block;
       cursor: pointer;
       color: #ffffff;
       font-family: Arial;
       font-size: 17px;
-      padding: 0px 20px;
       text-decoration: none;
       text-shadow: 0px 1px 0px #2b665e; }
-    #options button:hover {
-      background-color: #6c7c7c; }
     #options button:active {
       position: relative;
       top: 1px; }
 
   #money {
-    border: 1px white solid;
-    clear: both;
-    width: 50%;
     float: left;
-    height: 30px;
-    margin-top: 6%;
-    margin-left: 30%;
-    position: absolute;
-    text-align: center; }
+    width: 48%;
+    height: 3%;
+    margin-left: 15%;
+    text-align: right; }
     #money #totalcoins {
-      font-size: 18px;
-      font-style: bold; }
-    #money #coinsps {
-      font-size: 16px; }
+      font-size: 12px; }
     #money p {
-      display: inline-block; }
+      display: inline-block;
+      font-size: 9px; }
 
   #game {
-    width: 100%;
     clear: both;
-    float: left;
-    margin-top: 5px;
-    height: 60%; }
+    width: 100%;
+    margin-top: 1.5%;
+    display: inline-block; }
     #game #buyUnit {
-      background: rgba(47, 242, 252, 0.69);
-      float: left;
-      overflow-y: auto;
-      border: 1px solid white;
+      width: 30%;
       height: 30em;
-      width: 25%;
-      margin-left: 30px; }
+      background: rgba(47, 242, 252, 0.69);
+      overflow: auto;
+      margin-left: 30px;
+      float: left;
+      position: relative; }
       #game #buyUnit table {
         width: 100%; }
         #game #buyUnit table td {
           text-align: center; }
           #game #buyUnit table td img {
+            vertical-align: middle;
             height: 64px;
             width: 64px; }
     #game #sadButton {
-      width: 20%;
-      float: right; }
+      width: 18%;
+      margin-left: 4%;
+      float: left;
+      text-align: center; }
     #game #sadButton:active {
       position: relative;
-      top: 3px; } }
+      top: 3px; }
+    #game #totalUnits {
+      width: 42%;
+      height: 30em;
+      float: right;
+      background: rgba(47, 242, 252, 0.69);
+      overflow: auto;
+      position: relative; }
+      #game #totalUnits img {
+        vertical-align: middle;
+        height: 64px;
+        width: 64px; } }
 @media only screen and (max-width: 1024px) {
   #ads {
     visibility: hidden; }

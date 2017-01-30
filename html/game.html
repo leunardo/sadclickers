@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sadclickers"> <!-- angular app -->
     <head>
         <title>Cryin'</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link type="text/css" href="../css/game.css" rel="stylesheet">
+        <script src="../js/node_modules/angular/angular.js"></script>
+        <script type="text/javascript" src="../js/game.js"></script>
     </head>
     <body>
         <nav>                     
@@ -13,7 +15,7 @@
         <div id="ads">Advertising</div>
         <div id="userInfo">
             <p>Welcome <span id=username>user</span>!</p>
-            <p>Breaking news: <span id=news>The mayor inaugurated the sadboys day :O</span></p>
+            <p>Breaking news: <span id=news ng-controller="news">{{newsArray[index]}}</span></p>
             
         </div>
         <div id="options">
@@ -24,36 +26,32 @@
             <p id=totalcoins>$4d ¢0in$:<span id=aliquota></span></p>
             <p id=coinsps>$4d ¢0in$/s:<span id=aliquotaps></span></p>
         </div>
-        <div id="game">
-            <div id="buyUnit">
+        <div id="game">            
+            <div id="buyUnit" ng-controller="buyUnit"> <!-- controller buy -->
                 <table id=units>
                     <tr>                        
                         <th id=name>Name</th>
                         <th id=price>Price</th>
                         <th id=buyButton>Buy</th>
                     </tr>                       
-                    <tr>                        
-                        <td><p>Yang Leen</p></td>
-                        <td><p>240</p></td>
-                        <td><img src="../images/units/yang%20leen.fw.png"></td>
-                    </tr> 
-                    <tr>                        
-                        <td><p>Yang Leen</p></td>
-                        <td><p>240</p></td>
-                        <td><img src="../images/units/yang%20leen.fw.png"></td>
-                    </tr> 
-                    
+                    <tr ng-repeat="unit in units">                        
+                        <td><p>{{unit.name}}</p></td>
+                        <td><p>{{unit.price}}</p></td>
+                        <td><img ng-src={{unit.url}}></td>
+                    </tr>                                            
                 </table>                
             </div>            
             <div id="sadButton">
                 <img src="../images/apl/sademoji.fw.png">
             </div>            
-            <div id="totalUnits">
+            <div id="totalUnits" ng-controller="allUnits"> <!-- controller show -->
                 <table>
+                    <tr><th>Units</th></tr>
+                   
                 </table>
             </div>
         </div>
         <footer>
-        </footer>
+        </footer>               
     </body>
 </html>

@@ -112,7 +112,6 @@ nav {
   #game {
     clear: both;
     width: 100%;
-    margin-top: 1.5%;
     display: inline-block; }
     #game #buyUnit {
       width: 30%;
@@ -126,6 +125,8 @@ nav {
         width: 100%; }
         #game #buyUnit table td {
           text-align: center; }
+          #game #buyUnit table td th {
+            display: block; }
           #game #buyUnit table td img {
             vertical-align: middle;
             height: 64px;

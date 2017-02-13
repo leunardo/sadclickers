@@ -2,16 +2,14 @@
 @import "font";
 @import "navbar";
 @import "scrollbar";
-
-@media only screen and (min-width: 1023px){
+@media only screen and (min-width: 1023px) {
     #ads {
         height: 90px;
         border: 1px white solid;
-        float:left;
+        float: left;
         width: 728px;
-        margin-left:30px;
+        margin-left: 30px;
     }
-    
     #userInfo {
         height: 10%;
         width: 15%;
@@ -19,113 +17,101 @@
         float: right;
         margin-left: 10px;
         margin-right: 10px;
-        
         p {
             text-align: center;
             font-size: 10px;
             span {
-                
                 font-style: italic;
             }
         }
-    }   
-    
+    }
     #options {
-            
-        float:left;   
-        clear:left;
+        float: left;
+        clear: left;
         margin-left: 5%;
-        button {           
+        button {
             font-family: "Catamaran";
-            background-color:#768d87;            
-            cursor:pointer;
-            color:#ffffff;
-            font-family:Arial;
-            font-size:17px;            
-            text-decoration:none;
-            text-shadow:0px 1px 0px #2b665e;
-        }        
-        button:active {
-	       position:relative;
-	       top:1px;
+            background-color: #768d87;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 17px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2b665e;
         }
-
+        button:active {
+            position: relative;
+            top: 1px;
+        }
     }
     #money {
-            float:left;           
-            width: 48%;                      
-            height: 3%;
-            margin-left: 15%;              
-            text-align: right;
-            #totalcoins{
-                font-size: 12px;
-            }
-            p {
-                display: inline-block;
-                font-size: 9px;
-            }
+        float: left;
+        width: 48%;
+        height: 3%;
+        margin-left: 15%;
+        text-align: right;
+        #totalcoins {
+            font-size: 12px;
+        }
+        p {
+            display: inline-block;
+            font-size: 9px;
+        }
     }
     #game {
-        clear:both;
-        width:100%;
-        margin-top: 1.5%;
+        clear: both;
+        width: 100%;
         display: inline-block;
-        
         #buyUnit {
             width: 30%;
             height: 30em;
             background: rgba(47, 242, 252, 0.69);
             overflow: auto;
-            margin-left: 30px; 
-            float:left;
+            margin-left: 30px;
+            float: left;
             position: relative;
-            table {                
-                width: 100%;               
-                td{                      
-                    text-align: center;                       
+            table {
+                width: 100%;
+                td {
+                    th {
+                        display: block;
+                    }
+                    text-align: center;
                     img {
                         vertical-align: middle;
                         height: 64px;
                         width: 64px;
-                    }                   
-                }               
+                    }
+                }
             }
         }
-        
         #sadButton {
             width: 18%;
-            margin-left: 4%; 
-            float:left;
+            margin-left: 4%;
+            float: left;
             text-align: center;
-            
         }
         #sadButton:active {
-            position:relative;
+            position: relative;
             top: 3px;
         }
-        
-        #totalUnits{
-            width: 42%; 
+        #totalUnits {
+            width: 42%;
             height: 30em;
-            float:right;
+            float: right;
             background: rgba(47, 242, 252, 0.69);
             overflow: auto;
-            
             position: relative;
-            
-            img{
-                vertical-align: middle; 
+            img {
+                vertical-align: middle;
                 height: 64px;
                 width: 64px;
             }
         }
-    }  
+    }
 }
 
-    
-
-
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1024px) {
     #ads {
         visibility: hidden;
     }
@@ -133,6 +119,6 @@
         visibility: hidden;
     }
     #options {
-        visibility:hidden;        
+        visibility: hidden;
     }
 }

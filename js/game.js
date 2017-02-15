@@ -121,23 +121,6 @@ var game = function ($scope, $interval, serviceUnit) {
     }
 };
 
-
-/**var money = function ($scope, $interval, global, initialValue) {
-    let coinsPerSecond = function () {
-        $scope.totalcoins += $scope.coinsps / 10;
-    }
-    $scope.totalcoins = initialValue.totalcoins;
-    $scope.coinsps = initialValue.coinsps;
-    $interval(() => coinsPerSecond(), 100);
-};
-
-var clickbutton = function () {
-    let click = function (global) {
-        global.setVariables(1, undefined);
-    }
-
-}
-**/
 game.$inject = ['$scope', '$interval', 'serviceUnit'];
 news.$inject = ['$scope', '$interval'];
 app.controller('game', game);

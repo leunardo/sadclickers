@@ -6,7 +6,7 @@
     <title>Cryin'</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link type="text/css" href="../css/game.css" rel="stylesheet">
-    <script src="../js/node_modules/angular/angular.js"></script>
+    <script src="../js/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="../js/game.js"></script>
 
 </head>
@@ -22,51 +22,55 @@
         <p>Breaking news: <span id=news ng-controller="news">{{newsArray[index]}}</span></p>
 
     </div>
-    <div id="options">
-        <button>Save game</button>
-        <button>Reset</button>
-    </div>
-    <div id="money" ng-controller="money">
-        <p id=totalcoins>$4d ¢0in$: {{totalcoins | number: 2}}</p>
-        <p id=coinsps>$4d ¢0in$/s: {{coinsps}}</p>
-    </div>
-    <div id="game">
-        <div id="buyUnit" ng-controller="buyUnit">
-            <!-- controller buy -->
-            <table id=units>
-                <tr>
-                    <th id=name>Name</th>
-                    <th id=price>Price</th>
-                    <th id=buyButton>Buy</th>
-                </tr>
-                <tr ng-repeat="unit in units">
-                    <td>
-                        <p>{{unit.name}}</p>
-                    </td>
-                    <td>
-                        <p>{{unit.price | number: 2}}</p>
-                    </td>
-                    <td>
-                        <a ng-click="buy(unit.id)" href=><img ng-src={{unit.url}}> </a>
-                    </td>
-                </tr>
-            </table>
+    <div ng-controller="game">
+        <div id="options">
+            <button>Save game</button>
+            <button>Reset</button>
         </div>
-        <div id="sadButton">
-            <img src="../images/apl/sademoji.fw.png">
+        <div id="money">
+            <p id=totalcoins>$4d ¢0in$: {{totalcoins | number: 2}}</p>
+            <p id=coinsps>$4d ¢0in$/s: {{coinsps | number: 2}}</p>
+            <p id=coinpclick>$4d ¢oin$/click: {{coinspclick | number: 2}}</p>
         </div>
-        <div id="totalUnits" ng-controller="allUnits">
-            <!-- controller show -->
-            <table>
-                <tr>
-                    <th>Units</th>
-                </tr>
+        <div id="game">
+            <div id="buyUnit">
+                <table id=units>
+                    <tr>
+                        <th id=name>Name</th>
+                        <th id=price>Price</th>
+                        <th id=buyButton>Buy</th>
+                    </tr>
+                    <tr ng-repeat="unit in units">
+                        <td>
+                            <p>{{unit.name}}</p>
+                        </td>
+                        <td>
+                            <p>{{unit.price | number: 2}}</p>
+                        </td>
+                        <td>
+                            <a ng-click="buy(unit.id)" href=><img ng-src={{unit.url}}> </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="sadButton">
+                <a ng-click="click()"><img src="../images/apl/sademoji.fw.png"></a>
+            </div>
+            <div id="totalUnits">
+                <!-- controller show -->
+                <table>
+                    <tr>
+                        <th>Units</th>                        
+                    </tr>
+                    <tr ng-repeat='unit in units'>
+                        <td id='unitName'>{{unit.name}} ({{currentUnits[unit.id]}})</td>
+                        <td id='unitImg' ng-repeat='img in getImg(currentUnits[unit.id]) track by $index'><img ng-src='{{unit.url}}'></td>
+                    </tr>
 
-            </table>
+                </table>
+            </div>
         </div>
     </div>
-    <footer>
-    </footer>
 </body>
 
 </html>

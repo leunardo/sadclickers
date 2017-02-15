@@ -1,3 +1,6 @@
 *.db
 css/.sass-cache/
 *.map
+*.lock
+*.yarn-integrity
+stats.txt

@@ -1,30 +1,9 @@
 'use strict';
-var app = angular.module("sadclickers", []);
+var app = angular.module('sadclickers', []);
 
-var news = function ($scope, $interval) {
-    $scope.index = 3;
-    var getRandomIndex = function (max) {
-        var min = 0;
-        var randomIndex = Math.floor(Math.random() * (max - min)) + min;
-        $scope.index = randomIndex;
-    };
-
-    $scope.newsArray = [
-        "The mayor inaugurated the sad holyday",
-        "Everybody is crying",
-        "Rivers of tears are killing people drowned",
-        "Plz donate i'm poor :$",
-        "Terezinhaamaro",
-        "Keanu reeves started a icecream shop",
-        "Not being sad is now considered a crime"
-    ];
-
-
-    $interval(() => getRandomIndex($scope.newsArray.length), 10000);
-};
-
-var buyUnit = function ($scope) {
-    $scope.units = [
+//service
+var serviceUnit = function () {
+    this.unit = [
         {
             "name": "sadgirl",
             "price": Math.pow(3, Math.PI),
@@ -84,20 +63,82 @@ var buyUnit = function ($scope) {
     ];
 };
 
-var allUnits = function ($scope) {
+app.service("serviceUnit", serviceUnit);
 
-};
+//controller
+var news = function ($scope, $interval) {
+    $scope.index = 3;
+    let getRandomIndex = function (max) {
+        let randomIndex = Math.floor(Math.random() * (max));
+        $scope.index = randomIndex;
+    };
+    $interval(() => getRandomIndex($scope.newsArray.length), 10000);
 
-var money = function ($scope, $interval) {
-    var coinsPerSecond = function () {
-        $scope.totalcoins += $scope.coinsps / 10;
-    }
+    $scope.newsArray = [
+    'The mayor inaugurated the sad holyday',
+    'Everybody is crying',
+    'Rivers of tears are killing people drowned',
+    'Plz donate i\'m poor :$',
+    'Terezinhaamaro',
+    'Keanu reeves started a icecream shop',
+    'Not being sad is now considered a crime'
+    ];
+}
+var game = function ($scope, $interval, serviceUnit) {
+    let coinPerClick = 1;
+    $scope.currentUnits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $scope.coinspclick = 1;
     $scope.totalcoins = 0;
     $scope.coinsps = 1;
+    $scope.units = serviceUnit.unit;
+
+    //money
+    let coinsPerSecond = function () {
+        $scope.totalcoins += $scope.coinsps / 10;
+    }
+
+    $interval(() => coinsPerSecond(), 100);
+
+    //clickbutton
+    $scope.click = function () {
+        $scope.totalcoins += coinPerClick;
+    }
+
+    //buyunit(id)
+    $scope.buy = function (unit) {
+
+        if ($scope.units[unit].price < $scope.totalcoins) {
+
+            $scope.totalcoins -= $scope.units[unit].price;
+            $scope.currentUnits[unit]++;
+
+        }
+    }
+
+    //showUnit(id)
+    $scope.getImg = function (id) {
+        return new Array(id);
+    }
+};
+
+
+/**var money = function ($scope, $interval, global, initialValue) {
+    let coinsPerSecond = function () {
+        $scope.totalcoins += $scope.coinsps / 10;
+    }
+    $scope.totalcoins = initialValue.totalcoins;
+    $scope.coinsps = initialValue.coinsps;
     $interval(() => coinsPerSecond(), 100);
 };
 
-app.controller("news", news);
-app.controller("money", money);
-app.controller("buyUnit", buyUnit);
-app.controller("allUnits", allUnits);
+var clickbutton = function () {
+    let click = function (global) {
+        global.setVariables(1, undefined);
+    }
+
+}
+**/
+game.$inject = ['$scope', '$interval', 'serviceUnit'];
+news.$inject = ['$scope', '$interval'];
+app.controller('game', game);
+app.controller('news', news);

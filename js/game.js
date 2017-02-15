@@ -56,7 +56,7 @@ var serviceUnit = function () {
             "id": 9
         }, {
             "name": "yang leen",
-            "price": Math.pow(577, Math.PI),
+            "price": 9999999999,
             "url": "../images/units/yang leen.fw.png",
             "id": 10
         }
@@ -87,6 +87,8 @@ var news = function ($scope, $interval) {
 var game = function ($scope, $interval, serviceUnit) {
     let coinPerClick = 1;
     $scope.currentUnits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let bonus = [1, 3, 90, 230, 980, 1500, 13000, 30000, 100000, 30000000, 999999999];
+    $scope.clicks = 0;
     $scope.coinspclick = 1;
     $scope.totalcoins = 0;
     $scope.coinsps = 1;
@@ -102,16 +104,24 @@ var game = function ($scope, $interval, serviceUnit) {
     //clickbutton
     $scope.click = function () {
         $scope.totalcoins += coinPerClick;
+        $scope.clicks++;
     }
 
     //buyunit(id)
     $scope.buy = function (unit) {
 
-        if ($scope.units[unit].price < $scope.totalcoins) {
+        if ($scope.units[unit].price <= $scope.totalcoins) {
 
             $scope.totalcoins -= $scope.units[unit].price;
-            $scope.currentUnits[unit]++;
-
+            $scope.currentUnits[unit]++; //unit ++
+            $scope.units[unit].price += $scope.units[unit].price * 0.345; //AUMENTA O PREÇO
+            
+            //raises click
+            $scope.coinspclick += bonus[unit];
+            coinPerClick += bonus[unit]; //AUMENTA O CLICK
+            console.log(bonus[unit]);
+            //raises coin per second
+            $scope.coinsps += bonus[unit]/9.9; //AUMENTA /S
         }
     }
 

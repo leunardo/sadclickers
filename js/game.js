@@ -62,8 +62,16 @@ var serviceUnit = function () {
         }
     ];
 };
-
+var load = function () {
+    this.coinPerClick = parseInt(localStorage.getItem('coinPerClick'));
+    this.currentUnits = JSON.parse(localStorage.getItem('currentUnits'));
+    this.clicks = parseInt(localStorage.getItem('clicks'));
+    this.coinspclick = parseInt(localStorage.getItem('coinspclick'));
+    this.totalcoins = parseInt(localStorage.getItem('totalcoins'));
+    this.coinsps = parseFloat(localStorage.getItem('coinsps'));
+}
 app.service("serviceUnit", serviceUnit);
+app.service("load", load);
 
 //controller
 var news = function ($scope, $interval) {
@@ -84,15 +92,40 @@ var news = function ($scope, $interval) {
     'Not being sad is now considered a crime'
     ];
 }
-var game = function ($scope, $interval, serviceUnit) {
-    let coinPerClick = 1;
-    $scope.currentUnits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var game = function ($scope, $interval, serviceUnit, load) {
     let bonus = [1, 3, 90, 230, 980, 1500, 13000, 30000, 100000, 30000000, 999999999];
-    $scope.clicks = 0;
-    $scope.coinspclick = 1;
-    $scope.totalcoins = 0;
-    $scope.coinsps = 1;
     $scope.units = serviceUnit.unit;
+
+    //load game if exists data in localStorage
+    if (localStorage.length == 0) {
+        $scope.coinPerClick = 1;
+        $scope.currentUnits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        $scope.clicks = 0;
+        $scope.coinspclick = 1;
+        $scope.totalcoins = 0;
+        $scope.coinsps = 1;
+    } else {
+        $scope.coinPerClick = load.coinPerClick;
+        $scope.currentUnits = load.currentUnits;
+        $scope.clicks = load.clicks;
+        $scope.coinspclick = load.coinspclick;
+        $scope.totalcoins = load.totalcoins;
+        $scope.coinsps = load.coinsps;
+
+    }
+    
+
+    //save
+    $scope.save = function () {
+        localStorage.setItem('coinPerClick', $scope.coinPerClick);
+        localStorage.setItem('currentUnits', JSON.stringify($scope.currentUnits));
+        localStorage.setItem('clicks', $scope.clicks);
+        localStorage.setItem('coinspclick', $scope.coinspclick);
+        localStorage.setItem('totalcoins', $scope.totalcoins.toFixed(2));
+        localStorage.setItem('coinsps', $scope.coinsps.toFixed(3));
+    }
+
+    $interval(() => $scope.save(), 60000); //automaticaly saves every 1 min
 
     //money
     let coinsPerSecond = function () {
@@ -103,7 +136,7 @@ var game = function ($scope, $interval, serviceUnit) {
 
     //clickbutton
     $scope.click = function () {
-        $scope.totalcoins += coinPerClick;
+        $scope.totalcoins += $scope.coinPerClick;
         $scope.clicks++;
     }
 
@@ -115,13 +148,12 @@ var game = function ($scope, $interval, serviceUnit) {
             $scope.totalcoins -= $scope.units[unit].price;
             $scope.currentUnits[unit]++; //unit ++
             $scope.units[unit].price += $scope.units[unit].price * 0.345; //AUMENTA O PREÇO
-            
+
             //raises click
             $scope.coinspclick += bonus[unit];
-            coinPerClick += bonus[unit]; //AUMENTA O CLICK
-            console.log(bonus[unit]);
+            $scope.coinPerClick += bonus[unit]; //AUMENTA O CLICK            
             //raises coin per second
-            $scope.coinsps += bonus[unit]/9.9; //AUMENTA /S
+            $scope.coinsps += bonus[unit] / 9.9; //AUMENTA /S
         }
     }
 
@@ -131,7 +163,7 @@ var game = function ($scope, $interval, serviceUnit) {
     }
 };
 
-game.$inject = ['$scope', '$interval', 'serviceUnit'];
+game.$inject = ['$scope', '$interval', 'serviceUnit', 'load'];
 news.$inject = ['$scope', '$interval'];
 app.controller('game', game);
 app.controller('news', news);

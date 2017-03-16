@@ -62,6 +62,7 @@ var serviceUnit = function () {
         }
     ];
 };
+//
 var load = function () {
     this.coinPerClick = parseInt(localStorage.getItem('coinPerClick'));
     this.currentUnits = JSON.parse(localStorage.getItem('currentUnits'));
@@ -69,6 +70,13 @@ var load = function () {
     this.coinspclick = parseInt(localStorage.getItem('coinspclick'));
     this.totalcoins = parseInt(localStorage.getItem('totalcoins'));
     this.coinsps = parseFloat(localStorage.getItem('coinsps'));
+    this.units = function (units) {
+        for(let x=0; x < units.length; x++) {
+            units[x].price = parseFloat(localStorage.getItem(units[x].name));
+        } 
+        return units;
+    }
+    
 }
 app.service("serviceUnit", serviceUnit);
 app.service("load", load);
@@ -111,7 +119,7 @@ var game = function ($scope, $interval, serviceUnit, load) {
         $scope.coinspclick = load.coinspclick;
         $scope.totalcoins = load.totalcoins;
         $scope.coinsps = load.coinsps;
-
+        $scope.units = load.units($scope.units);
     }
     
 
@@ -123,9 +131,24 @@ var game = function ($scope, $interval, serviceUnit, load) {
         localStorage.setItem('coinspclick', $scope.coinspclick);
         localStorage.setItem('totalcoins', $scope.totalcoins.toFixed(2));
         localStorage.setItem('coinsps', $scope.coinsps.toFixed(3));
+        for(let x = 0; x < $scope.units.length; x++){
+            localStorage.setItem($scope.units[x].name, $scope.units[x].price.toFixed(2));
+        }
     }
 
-    $interval(() => $scope.save(), 60000); //automaticaly saves every 1 min
+    $interval(() => $scope.save(), 600000); //automaticaly saves every 1 min
+    
+    //reset
+    $scope.reset = function () {
+        let warningsign = prompt("Are you sure? To reset game, write: 'reset'.", "No pls :(");
+        
+        if(warningsign == "reset") {
+            localStorage.clear();      
+            alert("The game was reseted. Refresh page to new game.");
+        } else {
+            alert("I knew you wouldn't do that ;)");
+        }
+    }
 
     //money
     let coinsPerSecond = function () {
@@ -143,12 +166,11 @@ var game = function ($scope, $interval, serviceUnit, load) {
     //buyunit(id)
     $scope.buy = function (unit) {
 
-        if ($scope.units[unit].price <= $scope.totalcoins) {
-
+        if ($scope.units[unit].price <= $scope.totalcoins) {            
             $scope.totalcoins -= $scope.units[unit].price;
             $scope.currentUnits[unit]++; //unit ++
             $scope.units[unit].price += $scope.units[unit].price * 0.345; //AUMENTA O PREÇO
-
+            localStorage.setItem($scope.units[unit].name, $scope.units[unit].price);
             //raises click
             $scope.coinspclick += bonus[unit];
             $scope.coinPerClick += bonus[unit]; //AUMENTA O CLICK            
